@@ -1,6 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
+  // Demo1
+  {
+    path: '/demo1',
+    name: 'Demo1',
+    component: () => import('../views/Demo/demo1.vue'),
+  },
+  // Demo1
+  {
+    path: '/demo2',
+    name: 'Demo2',
+    component: () => import('../views/Demo/demo2.vue'),
+  },
+
   // Storefront Flow
   {
     path: '/classes',
@@ -159,6 +172,18 @@ const routes = [
     name: 'Store Donate',
     component: () => import('../views/Donate/index.vue'),
   },
+  // Exhibitions
+  {
+    path: '/donate',
+    name: 'Store Exhibitions',
+    component: () => import('../views/Donate/index.vue'),
+  },
+  // Shop
+  {
+    path: '/donate',
+    name: 'Store Shop',
+    component: () => import('../views/Donate/index.vue'),
+  },  
 ];
 
 const router = createRouter({

@@ -11,8 +11,10 @@ const windowInnerWidth = computed(() => store.state.windowInnerWidth);
 
 const navList = ref([
   { text: 'Classes', routeName: 'Store Classes' },
+  { text: 'Exhibitions', routeName: 'Store Exhibitions' },
   { text: 'Memberships', routeName: 'Memberships' },
   { text: 'Instructors', routeName: 'Store Instructors' },
+  { text: 'Shop', routeName: 'Store Shop' },
   { text: 'Donate', routeName: 'Store Donate' },
 ]);
 

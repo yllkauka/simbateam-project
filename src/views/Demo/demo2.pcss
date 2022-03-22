@@ -1,0 +1,194 @@
+.donation-amount {
+  @apply flex items-center flex-wrap justify-between gap-x-10
+  md:gap-x-6 xl:gap-x-10 gap-y-3 mb-5 md:w-[36rem] lg:w-auto;
+  .radio-input {
+    @apply w-[15%];
+  }
+
+  .other-amount {
+    @apply flex items-center gap-x-3;
+    .inp-box {
+      @apply relative;
+      .form-control {
+        @apply pl-12 w-40 md:w-44 xl:w-48 h-9;
+        &:focus + .special-icon {
+          @apply border-accent-1 text-accent-1;
+        }
+        &:disabled {
+          @apply opacity-60;
+          & + .special-icon {
+            @apply opacity-60;
+          }
+        }
+      }
+      .special-icon {
+        @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+      w-11 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+      pointer-events-none;
+      }
+    }
+  }
+}
+.store-donate {
+  .hero-banner {
+    @apply bg-[url('@/assets/images/demo2-banner.png')];
+    .container {
+      h1 {
+        @apply lg:text-lg sm:text-sm xl:text-xl 2xl:text-2xl;
+      }
+    }
+  }
+  .donate-form {
+    @apply py-4 md:py-6 lg:py-8;
+    .form-info {
+      @apply mb-5;
+    }
+    .btn-submit {
+      @apply block w-full sm:w-60 mx-auto py-2;
+    }
+    .form-row {
+      @apply sm:flex items-center gap-x-5;
+      .input-component,
+      .countries-drop {
+        @apply flex-1;
+      }
+      .countries-drop {
+        @apply mb-5;
+        .selector-btn {
+          @apply bg-gray-100;
+        }
+      }
+    }
+    .radio-input,
+    .check-input {
+      @apply inline-flex items-center gap-x-1.5;
+    }
+    .check-footer {
+      @apply inline-flex items-start gap-x-1.5;
+    }
+    > .row {
+      @apply xl:grid grid-cols-2 gap-x-10 mb-4 md:mb-7 xl:mb-10;
+      .column {
+        &.first {
+          @apply relative mb-2.5 xl:mb-0;
+          &::after {
+            @apply content-[''] absolute top-0 -right-5 h-full w-px bg-gray-200
+                hidden xl:block;
+          }
+          .donation-box {
+            .box-info {
+              @apply mb-3 lg:mb-5;
+              h2 {
+                @apply font-semibold text-lg;
+              }
+            }
+            .donation-amount {
+              @apply flex items-center flex-wrap justify-between gap-x-10
+              md:gap-x-6 xl:gap-x-10 gap-y-3 mb-5 md:w-[36rem] lg:w-auto;
+              .radio-input {
+                @apply w-[20%] md:w-auto;
+              }
+
+              .other-amount {
+                @apply flex items-center gap-x-3;
+                .inp-box {
+                  @apply relative;
+                  .form-control {
+                    @apply pl-12 w-40 md:w-44 xl:w-48 h-9;
+                    &:focus + .special-icon {
+                      @apply border-accent-1 text-accent-1;
+                    }
+                    &:disabled {
+                      @apply opacity-60;
+                      & + .special-icon {
+                        @apply opacity-60;
+                      }
+                    }
+                  }
+                  .special-icon {
+                    @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+                  w-11 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+                  pointer-events-none;
+                  }
+                }
+              }
+            }
+            .acknowledgement {
+              .form-control {
+                @apply h-36 py-3;
+              }
+            }
+          }
+          .recurring-donation {
+            @apply my-5;
+            .charge-day {
+              @apply mt-5;
+              .selected-item {
+                @apply bg-gray-50;
+                .selector-btn {
+                  @apply bg-gray-100;
+                }
+              }
+            }
+          }
+          .payment-box {
+            .row {
+              @apply sm:flex gap-x-2;
+              .input-component {
+                @apply flex-1;
+                &:first-of-type {
+                  @apply md:flex-none lg:flex-1 md:w-80 lg:w-auto;
+                }
+              }
+            }
+          }
+        }
+        &.second {
+          .column-info {
+            @apply mb-6;
+            h2 {
+              @apply font-semibold text-lg mb-1;
+            }
+            p {
+              @apply text-gray-400 mb-3.5;
+            }
+          }
+          .form-row:last-of-type {
+            .input-component {
+              @apply mb-0;
+            }
+          }
+        }
+      }
+    }
+    .footer-box {
+      @apply sm:text-center;
+      .btn-submit {
+        @apply mt-3 md:mt-5;
+      }
+    }
+  }
+}
+.btn-add {
+  @apply w-28 border-2 border-violet-600 h-10 rounded-lg mt-4 text-violet-500;
+}
+
+.inp-box {
+  @apply relative;
+  .form-control {
+    &:focus + .special-icon {
+      @apply border-accent-1 text-accent-1;
+    }
+    &:disabled {
+      @apply opacity-60;
+      & + .special-icon {
+        @apply opacity-60;
+      }
+    }
+  }
+  .special-icon {
+    @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+  w-16 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+  pointer-events-none;
+  }
+}
