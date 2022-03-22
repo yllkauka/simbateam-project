@@ -1,0 +1,375 @@
+.order-checkout {
+  @media (min-width: 1100px) {
+    .container {
+      @apply max-w-[1160px];
+    }
+  }
+
+  .btn-submit {
+    @apply block w-full mx-auto py-2 text-center;
+  }
+
+  .account-form {
+    .form-row {
+      @apply sm:flex items-center gap-x-5;
+      .input-component,
+      .countries-drop {
+        @apply flex-1;
+      }
+      .countries-drop {
+        @apply mb-5;
+      }
+    }
+    > .row {
+      @apply xl:grid grid-cols-2 gap-x-10 mb-4 md:mb-7 xl:mb-10;
+      .column {
+        &:first-of-type {
+          @apply relative;
+          &::after {
+            @apply content-[''] absolute top-0 -right-5 h-full w-px bg-gray-200
+                hidden xl:block;
+          }
+          .form-row:last-of-type {
+            .input-component {
+              @apply xl:mb-0;
+            }
+          }
+        }
+
+        .checkbox-component {
+          @apply inline-flex items-center gap-x-1.5 mb-4 md:mb-5;
+        }
+      }
+    }
+
+    .terms-policy-note {
+      @apply sm:text-center text-sm mb-4 md:mb-5;
+      .link {
+        @apply text-accent-1;
+      }
+    }
+  }
+
+  .review-cart,
+  .payment-info,
+  .order-confirmation {
+    @apply pt-[30px] xl:pt-10 pb-10 relative
+    min-h-[calc(100vh-254px)] sm:min-h-[calc(100vh-198px)] md:min-h-[calc(100vh-208px)]
+    xl:min-h-[calc(100vh-219px)];
+    .page-info {
+      @apply mb-5;
+    }
+    .content-grid {
+      @media (min-width: 1100px) {
+        @apply grid;
+      }
+      @apply grid-cols-[1.4fr,1fr] gap-x-6 xl:gap-x-10;
+      .first-column {
+        @apply mb-7 xl:mb-0;
+      }
+    }
+
+    .cart-stats {
+      @apply pt-3 pb-2.5;
+      li {
+        @apply flex items-center justify-between mb-1 text-sm;
+      }
+    }
+  }
+
+  .classes-items .class-box,
+  .membership-box,
+  .payment-info .donation-box {
+    @apply flex py-4 sm:py-5 border-b border-gray-200 relative gap-x-2 md:gap-x-4;
+    .box-image {
+      @apply flex-none w-1/5 sm:w-auto;
+      img {
+        @apply w-full sm:w-48 max-h-[50%] sm:max-h-32 object-cover;
+      }
+    }
+    .box-content {
+      @apply flex flex-col justify-between w-full;
+      .first-row {
+        @apply w-full mb-3 sm:mb-1;
+        h2 {
+          @apply font-bold text-sm md:text-xl mb-0.5 sm:mb-2 pr-5;
+        }
+        > p {
+          @apply text-gray-400 flex items-center gap-x-1 mb-0.5 sm:mb-1.5 text-sm;
+          .icon {
+            @apply text-base flex-none;
+          }
+        }
+      }
+      .second-row {
+        @apply flex flex-col gap-y-3 sm:flex-row sm:items-center justify-between;
+        .box-drop {
+          @apply sm:w-56;
+          .selected-item {
+            @apply !h-9;
+          }
+        }
+        h2 {
+          @apply text-accent-2 font-bold sm:text-xl;
+        }
+      }
+    }
+    .btn-delete {
+      @apply absolute top-5 right-0 transition hover:opacity-70;
+    }
+  }
+
+  .review-cart {
+    .content-grid {
+      .first-column {
+        .items-header {
+          @apply flex items-center justify-between pb-2 border-b border-gray-200;
+          h2 {
+            @apply font-bold text-lg;
+          }
+          .add-btn {
+            @apply inline-flex items-center gap-x-1.5 font-bold text-accent-1
+            transition hover:text-accent-2;
+            .icon {
+              @apply w-5 h-5;
+            }
+          }
+        }
+      }
+      .second-column {
+        .donation-box {
+          @apply py-4 px-3 md:p-5 md:pb-5 xl:pb-[30px] rounded-lg border;
+          .box-info {
+            @apply mb-5;
+            h2 {
+              @apply font-bold text-lg;
+              span {
+                @apply font-normal text-gray-400;
+              }
+            }
+            p {
+              @apply text-gray-400;
+            }
+          }
+          .donation-amount {
+            @apply flex items-center flex-wrap justify-between gap-x-5 sm:gap-x-0
+            md:gap-x-6 xl:gap-x-10 gap-y-3 mb-5;
+            .check-input {
+              @apply inline-flex items-center gap-x-1.5;
+            }
+            .other-amount {
+              @apply flex items-center gap-x-3;
+              .inp-box {
+                @apply relative;
+                .form-control {
+                  @apply pl-12 w-40 md:w-44 xl:w-48 h-9;
+                  &:focus + .special-icon {
+                    @apply border-accent-1 text-accent-1;
+                  }
+                  &:disabled {
+                    @apply opacity-60;
+                    & + .special-icon {
+                      @apply opacity-60;
+                    }
+                  }
+                }
+                .special-icon {
+                  @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+                  w-11 border flex items-center justify-center rounded-l-lg transition
+                  pointer-events-none;
+                }
+              }
+            }
+          }
+          .acknowledgement {
+            @apply mb-0;
+            .form-control {
+              @apply h-36 py-3;
+            }
+          }
+        }
+      }
+    }
+
+    .add-attendee-modal {
+      @apply md:w-[708px] lg:w-[992px] md:max-w-[1160px] relative;
+      .close-modal {
+        @apply absolute top-0.5 md:top-5 right-0 md:right-5 z-20
+        text-accent-1 transition hover:text-accent-2;
+        .icon {
+          @apply w-6 h-6;
+        }
+      }
+      .btn-submit {
+        @apply sm:w-60;
+      }
+      .modal-info {
+        @apply md:absolute top-0 left-0 md:p-10 md:pb-4
+        bg-white w-[calc(100%-1rem)] z-10;
+      }
+      .account-form {
+        @apply md:p-10 md:pt-36 overflow-y-auto md:max-h-[80vh] xl:max-h-[90vh];
+      }
+    }
+  }
+
+  .payment-info {
+    .content-grid {
+      .first-column {
+        @apply flex flex-col justify-between h-full;
+        .col-heading {
+          @apply font-bold text-lg mb-3.5;
+        }
+        .saved-payments {
+          @apply rounded-lg border border-gray-200 mb-5;
+          .payment-box {
+            @apply flex sm:items-center gap-x-3 sm:gap-x-5 py-4 px-3 sm:p-5 border-b;
+            p {
+              @apply inline-flex flex-col sm:flex-row sm:items-center gap-y-1 gap-x-5;
+              strong {
+                @apply text-xl -mt-1.5 sm:mt-0;
+              }
+            }
+          }
+          .new-payment {
+            @apply flex items-center gap-x-3 sm:gap-x-5 py-4 px-3 sm:p-5
+            font-bold text-accent-1;
+          }
+        }
+
+        .methods-images {
+          @apply flex items-center gap-x-2.5 mb-5;
+        }
+
+        .payment-form {
+          .row {
+            @apply sm:flex gap-x-2.5;
+          }
+        }
+
+        .gift-code {
+          span {
+            @apply inline-block mt-2;
+          }
+          &.success {
+            span {
+              @apply text-green-600;
+            }
+          }
+          &.error {
+            .form-control {
+              @apply bg-red-50 border-red-500 text-red-600;
+            }
+            span {
+              @apply text-red-600;
+            }
+          }
+        }
+      }
+
+      .second-column {
+        @apply rounded-lg border border-gray-200 p-3 md:p-5 h-max;
+        .col-heading {
+          @apply font-bold border-b text-lg pb-2 md:pb-4;
+        }
+        .classes-items .class-box,
+        .membership-box,
+        .donation-box {
+          @apply py-4 gap-x-2.5 sm:gap-x-3.5;
+          .box-image {
+            @apply flex-none w-auto h-full;
+            img {
+              @apply w-16 h-16 object-cover;
+            }
+          }
+          .box-content {
+            .first-row {
+              @apply w-full mb-0;
+              h2 {
+                @apply text-sm mb-0.5;
+              }
+            }
+            .second-row {
+              h2 {
+                @apply text-sm;
+              }
+            }
+          }
+        }
+
+        .cart-stats {
+          @apply pt-4 pb-0;
+        }
+      }
+    }
+  }
+
+  .order-confirmation {
+    @apply lg:max-w-[44rem];
+    .page-info {
+      @apply lg:mb-[30px];
+      .row {
+        @apply flex flex-col gap-y-4 md:flex-row md:items-center justify-between;
+        .actions {
+          @apply flex items-center gap-x-5 lg:gap-x-[30px];
+          .btn {
+            @apply inline-flex items-center gap-x-1.5 font-bold text-accent-1 transition
+              hover:text-accent-2;
+            .icon {
+              @apply w-[18px] h-[18px] flex-none;
+            }
+          }
+        }
+      }
+    }
+
+    .order-receipt {
+      @apply rounded-lg border border-gray-200 mb-5 lg:mb-7;
+      .receipt-header {
+        @apply flex items-center justify-between py-4 px-3 sm:p-5 border-b
+            flex-wrap gap-y-3 gap-x-5;
+        .box {
+          @apply flex items-center gap-x-1.5 text-sm;
+          h5 {
+            @apply font-bold;
+          }
+          span {
+            @apply text-gray-600;
+          }
+        }
+      }
+      .order-classes .class-box,
+      .membership,
+      .donation {
+        @apply border-b px-3 sm:px-5 py-2.5 sm:py-3.5;
+        header {
+          @apply flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-5 justify-between
+              mb-1;
+          h2 {
+            @apply font-bold text-lg sm:text-xl;
+          }
+          h4 {
+            @apply font-bold text-accent-2;
+          }
+        }
+        p {
+          @apply text-gray-600 mb-1;
+          &:last-of-type {
+            @apply mb-0;
+          }
+        }
+      }
+
+      .stats {
+        @apply px-3 py-4 sm:p-5;
+        li {
+          @apply flex items-center justify-between mb-1;
+        }
+      }
+    }
+
+    .btn-submit {
+      @apply lg:w-80 ml-0;
+    }
+  }
+}

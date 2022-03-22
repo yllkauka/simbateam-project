@@ -1,0 +1,284 @@
+.storefront-classes {
+  .hero-banner {
+    @apply bg-[url('@/assets/images/classes-banner.jpg')];
+  }
+  .classes-grid {
+    @apply flex gap-x-5 xl:gap-x-7 pt-5 xl:pt-8 pb-8 xl:pb-10;
+    .class-type {
+      @apply flex-none w-36 xl:w-48 hidden md:block;
+      h4 {
+        @apply uppercase font-bold text-gray-600 text-sm mb-4;
+      }
+      .types {
+        li {
+          @apply text-sm mb-4 transition cursor-pointer;
+          &:not(.selected) {
+            @apply hover:opacity-70;
+          }
+          &.selected {
+            @apply font-bold text-accent-1;
+          }
+        }
+      }
+    }
+    .classes-view {
+      @apply w-full;
+      .store-warning {
+        @apply flex items-center p-4 gap-x-2.5 bg-gray-50 text-sm rounded-md;
+        .warning-icon {
+          @apply text-gray-400 w-5 h-5 flex-none;
+        }
+        .warning-link {
+          @apply font-bold text-accent-1 ml-2 transition hover:text-accent-2;
+        }
+      }
+      .class-type-drop {
+        @apply py-4 md:hidden;
+      }
+      .classes-filters {
+        @apply grid md:grid-cols-2 xl:grid-cols-4 gap-y-3 gap-x-5 xl:gap-x-4 mb-4 md:mb-0 md:py-7 transition-all duration-200;
+        @screen md {
+          height: fit-content !important;
+        }
+      }
+      .btn-show-filters {
+        @apply inline-flex items-center gap-x-1.5 mb-8 text-accent-1 font-bold text-sm md:hidden;
+        .icon {
+          @apply w-4 h-4;
+        }
+      }
+      .classes-wrapper {
+        @apply md:grid grid-cols-2 gap-x-5 xl:block;
+        .class-box {
+          @apply flex flex-col xl:flex-row gap-y-2 gap-x-5 mb-8 xl:mb-10;
+          .class-image {
+            @apply xl:w-[17rem] relative h-44 md:h-max flex-none;
+            img {
+              @apply w-full h-full object-cover;
+            }
+            .image-overlay {
+              @apply absolute bottom-0 left-0 bg-gray-700 bg-opacity-75 text-white
+              pb-1 px-6 xl:px-3 text-center;
+              h5 {
+                @apply font-bold text-lg -mb-2;
+              }
+              span {
+                @apply text-xs;
+              }
+            }
+          }
+          .class-info {
+            @apply relative flex-1 flex flex-col justify-between xl:block;
+            .class-name {
+              @apply font-bold text-xl xl:text-2xl mb-2;
+            }
+            .class-instructor,
+            .class-schedule,
+            .class-location,
+            .class-level {
+              @apply text-gray-400 flex items-center gap-x-1 mb-1.5 text-sm;
+              .icon {
+                @apply text-base;
+              }
+            }
+            .class-price {
+              @apply font-bold flex items-center justify-between xl:justify-start
+              gap-x-5 mt-2;
+              .main-price {
+                @apply text-accent-2 text-2xl;
+              }
+              .members-price {
+                @apply flex items-center gap-x-2;
+                span {
+                  @apply font-normal text-gray-400 text-sm;
+                }
+              }
+            }
+            .btn-register {
+              @apply inline-block xl:absolute bottom-0 right-0 xl:text-lg
+              py-1.5 xl:py-2 px-[3.6rem] w-full xl:w-auto text-center mt-3;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Class Details */
+.class-details {
+  @apply pb-10;
+  .go-back-link {
+    @apply inline-flex items-center gap-x-1 py-1.5 px-4 rounded-full flex-wrap
+    text-sm mt-1 mb-6;
+    .icon {
+      @apply w-5 h-5;
+    }
+  }
+
+  .class-box {
+    @apply flex flex-col md:flex-row gap-y-6 gap-x-5 xl:gap-x-7 mb-8;
+    .class-image {
+      @apply w-full md:w-5/12 xl:w-auto xl:flex-1 relative h-full;
+      img {
+        @apply w-full object-cover;
+      }
+      .image-overlay {
+        @apply absolute bottom-0 left-0 bg-gray-700 bg-opacity-75 text-white
+        pt-1.5 pb-2.5 px-5 xl:px-[1.15rem] text-center;
+        h5 {
+          @apply font-bold text-xl  xl:text-2xl -mb-1;
+        }
+      }
+    }
+    .class-info {
+      @apply relative flex-1 flex flex-col xl:justify-between;
+      .class-name {
+        @apply font-bold text-2xl mb-2;
+      }
+      .class-code,
+      .class-instructor,
+      .class-schedule,
+      .class-location,
+      .class-level {
+        @apply text-gray-400 flex items-center gap-x-1 mb-2 text-sm;
+        .icon {
+          @apply text-base flex-none;
+        }
+      }
+      .class-price {
+        @apply font-bold flex items-center justify-between md:justify-start
+        gap-x-5 mt-2;
+        .main-price {
+          @apply text-accent-2 text-2xl;
+        }
+        .members-price {
+          @apply flex items-center gap-x-2;
+          span {
+            @apply font-normal text-gray-400 text-sm;
+          }
+        }
+      }
+    }
+    .btn-cart {
+      @apply inline-block xl:text-lg py-1.5 xl:py-2 px-[3.6rem] w-full md:w-auto text-center mt-3;
+      &:disabled {
+        @apply pointer-events-none bg-gray-300 text-gray-500;
+      }
+    }
+    &.has-sessions {
+      @apply grid sm:grid-cols-2 sm:gap-x-3 md:gap-x-5 xl:gap-x-7;
+      .class-image {
+        @apply md:w-full;
+      }
+      .class-info {
+        @apply xl:justify-start;
+      }
+      .sessions-wrapper {
+        @apply sm:col-span-2 xl:col-span-1 xl:col-start-2  xl:-mt-56;
+        .class-sessions {
+          @apply rounded border border-gray-200 overflow-hidden mt-2;
+          > * {
+            @apply py-3 px-4;
+          }
+          header,
+          .session-row {
+            @apply sm:grid grid-cols-[.35fr,4.75fr,2.1fr,.9fr] border-b items-center gap-x-4;
+          }
+          header {
+            @apply font-bold text-gray-400 bg-[#fcfcfc] text-xs;
+            input {
+              @apply cursor-pointer;
+            }
+            :last-child {
+              @apply text-center;
+            }
+            > :not(label) {
+              @apply hidden sm:block;
+            }
+            label {
+              @apply inline-flex items-center gap-x-3;
+              b {
+                @apply text-accent-1 sm:hidden;
+              }
+            }
+          }
+          .session-row {
+            @apply text-sm pl-10 sm:pl-4 relative flex sm:grid flex-col gap-y-5 items-start sm:items-center;
+            .box {
+              @apply flex flex-col gap-y-2;
+              .box-label {
+                @apply sm:hidden text-xs uppercase text-gray-600;
+              }
+            }
+            input {
+              @apply absolute left-3 top-3 sm:relative sm:left-0 sm:top-0 cursor-pointer
+              transition;
+              &:not(:checked):hover {
+                @apply border-gray-400;
+              }
+            }
+            h4 {
+              @apply font-bold;
+            }
+            span {
+              @apply text-gray-400;
+            }
+            strong {
+              @apply text-accent-2 text-center;
+            }
+          }
+          footer {
+            @apply flex items-center justify-between bg-[#fcfcfc] text-sm;
+            p {
+              @apply text-gray-400;
+            }
+            strong {
+              span {
+                @apply text-accent-2;
+              }
+            }
+          }
+        }
+        .btn-cart-sessions {
+          @apply inline-block xl:text-lg py-1.5 xl:py-2 px-[3.6rem] w-full md:w-auto text-center mt-3 sm:w-auto;
+        }
+      }
+    }
+  }
+
+  .section-heading {
+    @apply text-accent-2 font-bold text-xl mb-2.5;
+  }
+
+  .program-description,
+  .instructors,
+  .special-notes {
+    @apply mb-[30px];
+  }
+
+  .instructors {
+    .instructor-box {
+      @apply flex flex-col md:flex-row items-center md:items-start gap-y-2 gap-x-3.5 xl:gap-x-5 mb-5;
+      img {
+        @apply flex-none w-16 h-16 xl:w-20 xl:h-20 rounded-full object-cover;
+      }
+      .info {
+        h5 {
+          @apply font-bold text-center md:text-left;
+        }
+        li:not(:last-child) {
+          @apply mb-3;
+        }
+      }
+    }
+  }
+  .special-notes {
+    li:not(:last-child) {
+      @apply mb-3;
+    }
+  }
+  .online-store-link {
+    @apply underline text-accent-1 transition hover:text-accent-2;
+  }
+}

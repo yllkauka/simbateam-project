@@ -1,0 +1,201 @@
+.store-instructors {
+  .hero-banner {
+    @apply bg-[url('@/assets/images/instructors-banner.png')];
+  }
+  .page-info {
+    @apply mt-7 mb-5;
+  }
+  .container {
+    @apply xl:max-w-[1200px];
+  }
+  .instructors-cards {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
+    gap-y-4 sm:gap-4 md:gap-5 pb-10 md:pb-14 xl:pb-20;
+    .instructor-card {
+      @apply rounded-lg border border-gray-200 flex flex-col items-center
+      p-3 pb-4;
+      img {
+        @apply w-[10.5rem] h-[10.5rem] rounded-full object-cover mb-3;
+      }
+      h2 {
+        @apply font-bold text-xl leading-6 tracking-[.5px];
+      }
+      span {
+        @apply inline-block text-sm mb-3 text-gray-500;
+      }
+      p {
+        @apply text-gray-600 text-center mb-3;
+      }
+      .link {
+        @apply inline-block w-full py-1.5 text-center;
+      }
+    }
+  }
+}
+.instructor-profile {
+  @apply pb-8 md:pb-14 xl:pb-20;
+  .go-back-link {
+    @apply inline-flex items-center gap-x-1 py-1.5 px-4 rounded-full flex-wrap
+    text-sm mt-3.5 mb-5;
+    .icon {
+      @apply w-5 h-5;
+    }
+  }
+  .instructor-info {
+    @apply flex flex-col items-center mb-7;
+    img {
+      @apply rounded-full object-cover w-[6.25rem] h-[6.25rem] md:w-[7.5rem] md:h-[7.5rem]
+      xl:w-44 xl:h-44 mb-3;
+    }
+    span {
+      @apply inline-block text-gray-500 mb-2;
+    }
+    p {
+      @apply lg:w-[41rem] text-center mb-3 md:mb-4;
+    }
+  }
+  .page-description {
+    @apply mb-4 md:mb-5 xl:mb-7;
+  }
+  .classes-box {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-4 sm:gap-5 mb-10;
+    .class-card {
+      @apply rounded-lg border border-gray-200 p-5 flex flex-col h-full flex-grow;
+      .class-image {
+        @apply w-full relative;
+        img {
+          @apply w-full object-cover;
+        }
+        .image-overlay {
+          @apply absolute bottom-0 left-0 bg-gray-700 bg-opacity-75 text-white
+          pt-1 pb-1.5 px-2.5 xl:px-[1.15rem] text-center;
+          h5 {
+            @apply font-bold text-lg leading-5 -mb-1.5;
+          }
+          span {
+            @apply text-xs leading-3;
+          }
+        }
+      }
+      .class-name {
+        @apply font-bold text-xl my-2;
+      }
+      .class-info {
+        @apply relative flex flex-col xl:justify-between mt-auto;
+        p {
+          @apply text-gray-400 flex items-center gap-x-1 mb-2 text-sm;
+          .icon {
+            @apply text-base flex-none;
+          }
+        }
+        .class-price {
+          @apply flex items-center justify-between font-bold mb-3;
+          .main-price {
+            @apply text-2xl text-accent-2;
+          }
+          .members-price {
+            @apply font-bold;
+            span {
+              @apply text-sm text-gray-500 font-normal;
+            }
+          }
+        }
+        .btn-register {
+          @apply py-1.5 text-center;
+        }
+      }
+    }
+  }
+  .artwork-preview {
+    .page-heading {
+      @apply flex items-center justify-between sm:justify-start gap-x-5;
+      .view-lightbox {
+        @apply inline-flex items-center gap-x-1.5 font-bold text-accent-1 transition
+        hover:text-accent-2 text-base;
+        .icon {
+          @apply w-4 relative top-px;
+        }
+      }
+    }
+    .masonry-wrapper {
+      @apply sm:-ml-1 sm:-mr-4 md:-ml-2 md:-mr-7 xl:-mx-2.5;
+      .artwork-block {
+        @apply w-full sm:max-w-[296px] md:max-w-[346px] lg:max-w-[calc(932px/3)]
+        xl:max-w-[calc(1120px/3)] mb-4 sm:m-1 md:m-2 xl:m-2.5 relative cursor-pointer;
+        .overlay {
+          @apply absolute left-0 bottom-0 text-white w-full px-3 py-1.5 md:py-2.5;
+          background: rgba(57, 57, 57, 0.6);
+        }
+      }
+    }
+
+    .artwork-modal {
+      @apply relative md:p-5 lg:p-7 xl:py-8 xl:px-10 md:w-[44.25rem] lg:w-[60.25rem] xl:w-[69rem]
+      md:h-[80vh] flex flex-col pt-4;
+      .modal-header {
+        @apply flex items-center justify-between relative;
+        .column {
+          @apply flex items-center gap-x-7 w-1/2 justify-between lg:justify-start;
+          .pagination {
+            @apply bg-gray-50 border border-gray-200 rounded-sm flex;
+            button {
+              @apply p-1 disabled:text-gray-300;
+              .icon {
+                @apply w-5 h-5;
+              }
+              &.btn-next {
+                @apply border-l;
+              }
+            }
+          }
+        }
+        .current-item {
+          @apply text-gray-400 absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0;
+        }
+        .btn-close {
+          @apply w-6 h-6 text-accent-1;
+        }
+      }
+
+      .item-details {
+        @apply flex flex-col lg:flex-row gap-x-5 xl:gap-x-10 gap-y-3 sm:gap-y-5 md:gap-y-7
+        md:mb-5 mt-3.5 sm:mt-6 md:mt-10 items-center h-full lg:overflow-hidden;
+        .item-pic {
+          @apply flex-none lg:w-[30rem] xl:w-[36rem] h-[26rem] sm:h-[27.5rem] md:h-[29rem] lg:h-auto
+          overflow-hidden flex items-center justify-center sm:px-4 md:px-8 lg:px-0;
+          img {
+            @apply object-cover;
+          }
+        }
+        .item-info {
+          .item-artist {
+            @apply font-semibold text-gray-400 mb-2;
+          }
+        }
+      }
+    }
+  }
+}
+
+.instructor-card,
+.instructor-info {
+  ul {
+    @apply mt-auto mb-3 flex items-center gap-x-5;
+    li {
+      a {
+        @apply inline-block px-1.5 transition;
+        &:hover {
+          &.twitter {
+            color: #1da1f2;
+          }
+          &.facebook {
+            color: #1877f2;
+          }
+          &.dribbble {
+            color: #ea4c89;
+          }
+        }
+      }
+    }
+  }
+}

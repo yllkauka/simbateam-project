@@ -1,0 +1,87 @@
+/* Global */
+.store-sign-in,
+.store-forgot-password,
+.store-reset-password {
+  @apply lg:py-[60px] bg-[#f4f4f4] relative lg:flex items-center justify-center
+  lg:min-h-[calc(100vh-362px)];
+  .xl\:container {
+    @apply lg:max-w-[960px] mx-auto;
+  }
+  .row {
+    @apply flex lg:items-center flex-col lg:flex-row lg:h-[32rem] lg:rounded-lg bg-white overflow-hidden;
+    .form-column {
+      @apply basis-[52%] py-6 md:py-[30px] px-4 md:px-[30px] lg:p-10;
+      .page-description {
+        @apply mb-4 md:mb-6;
+      }
+      .input-icon-component {
+        @apply mb-4 md:mb-6;
+      }
+      .btn-submit {
+        @apply w-full py-2 mb-4 md:mb-6;
+      }
+    }
+    .bg-column {
+      @apply lg:basis-[48%] -order-1 lg:order-1 lg:h-full;
+      img {
+        @apply w-full h-56 lg:w-auto lg:h-full object-cover;
+      }
+    }
+  }
+}
+
+.store-forgot-password,
+.store-reset-password {
+  .page-icon {
+    @apply w-[100px] md:w-auto mb-6 md:mb-[30px];
+  }
+
+  .sign-in-link {
+    @apply font-bold text-sm text-accent-1 transition hover:text-accent-2;
+  }
+}
+
+/* Sign In */
+.store-sign-in {
+  .row {
+    .form-column {
+      .form-helpers {
+        @apply flex items-center justify-between mb-6;
+        .checkbox-component {
+          @apply flex items-center gap-x-2 text-sm text-gray-500;
+        }
+        .reset-link {
+          @apply font-bold text-sm text-accent-1 transition hover:text-accent-2;
+        }
+      }
+      .register-link {
+        @apply text-sm transition;
+        strong {
+          @apply text-accent-1 transition;
+        }
+        &:hover {
+          @apply opacity-70;
+          strong {
+            @apply text-accent-2;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Reset Password */
+.store-reset-password {
+  .row {
+    .form-column {
+      .page-heading {
+        @apply mb-4 md:mb-6;
+      }
+      .password-updated {
+        .page-heading {
+          @apply mb-2;
+        }
+      }
+    }
+  }
+}

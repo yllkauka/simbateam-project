@@ -1,0 +1,16 @@
+body.canvas {
+  @apply font-['Inter'];
+  .btn-accent-1,
+  .btn-accent-2 {
+    @apply  text-white rounded font-bold transition duration-200 ;
+    &:disabled {
+      @apply pointer-events-none opacity-60;
+    }
+  }
+  .btn-accent-1 {
+    @apply bg-accent-1 hover:bg-accent-2;
+  }
+  .btn-accent-2 {
+    @apply bg-accent-2 hover:bg-accent-1;
+  }
+}

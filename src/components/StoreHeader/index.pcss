@@ -1,0 +1,205 @@
+.storefront-header {
+  @apply relative z-20;
+  .content {
+    @apply flex items-center justify-between py-4 lg:py-5 h-20 lg:h-auto;
+    &::before {
+      @apply content-[''] absolute left-0 top-0 -z-[1] w-full h-full bg-white;
+    }
+    .store-logo {
+      img {
+        @apply w-32 md:w-44 xl:w-[200px];
+      }
+    }
+
+    .nav-toggler {
+      @apply flex flex-col justify-between relative w-6 h-[1.35rem]
+      p-1 lg:hidden;
+      span {
+        @apply inline-flex w-full h-0.5 rounded-full bg-accent-1
+        transition-all duration-300 rotate-0 relative top-0 translate-y-0;
+      }
+      &.opened {
+        span {
+          &:first-of-type {
+            @apply rotate-45 relative top-1/2 -translate-y-1/2;
+          }
+          &:nth-of-type(2) {
+            @apply w-0;
+          }
+          &:last-of-type {
+            @apply -rotate-45 relative -top-1/2 translate-y-1/2;
+          }
+        }
+      }
+    }
+
+    .overlay {
+      @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-40 -z-50;
+    }
+    .store-navigation {
+      @apply fixed left-0 md:left-[initial] md:-right-64 -top-full md:top-20 bg-teal-50
+      border border-gray-200 w-full md:w-64 rounded-b-lg p-4 md:p-7 lg:bg-transparent
+      lg:border-0 lg:p-0 lg:w-auto lg:static transition-all duration-500 lg:transition-none
+      -z-[2] lg:z-20 md:h-[calc(100vh-5rem)] lg:h-auto md:rounded-none;
+      &.logged-in {
+        @apply h-[calc(100vh-5rem)] lg:h-auto duration-[.6s];
+        .auth-info {
+          @apply mt-auto;
+        }
+      }
+      &.opened {
+        @apply top-20 md:right-0;
+      }
+      > .container {
+        @apply flex flex-col h-full lg:flex-row lg:items-center gap-y-4 gap-x-10 text-lg leading-5
+        md:px-0;
+      }
+      .nav-list {
+        @apply flex flex-col lg:flex-row lg:items-center gap-y-4 gap-x-10;
+        .nav-link {
+          @apply font-bold relative inline-block w-full lg:w-auto py-2 lg:p-0
+          transition;
+          &::after {
+            @apply content-[attr(data-link)] overflow-hidden absolute bottom-1 left-0 lg:-bottom-2 lg:left-0
+            w-min h-[3px] bg-accent-2 bg-opacity-0 transition duration-200;
+          }
+          &:not(.router-link-active) {
+            @apply hover:opacity-70;
+          }
+          &.router-link-active {
+            @apply pb-3 lg:p-0;
+            &::after {
+              @apply bg-opacity-100;
+            }
+          }
+        }
+      }
+      .cart-modal {
+        @apply relative flex items-center;
+        .cart-btn {
+          @apply inline-flex items-center gap-x-1.5 font-bold w-full lg:w-auto py-2 lg:p-0
+          transition hover:opacity-75;
+        }
+
+        .cart-popup {
+          @apply fixed lg:absolute w-full lg:w-[21.5rem] h-[calc(100%-5rem)] overflow-auto
+          lg:h-auto top-20 lg:top-full lg:mt-3 right-0 lg:-right-4 bg-white p-4 lg:px-6 lg:py-5
+          border-t lg:border border-gray-100;
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.07);
+          .container {
+            @apply flex flex-col h-full;
+          }
+          &::before {
+            @apply lg:content-[''] absolute -top-2 right-4 w-4 h-4 border border-transparent 
+            border-t-gray-100 border-l-gray-100 bg-white  rotate-45;
+            box-shadow: -5px -5px 10px -4px rgba(0, 0, 0, 0.07);
+          }
+          header {
+            @apply flex items-center justify-between pb-5 border-b border-gray-200;
+            h3 {
+              @apply text-2xl lg:text-lg font-bold;
+            }
+            .icon {
+              @apply w-5 h-5 text-accent-1 transition hover:opacity-70;
+            }
+          }
+          .in-cart-classes {
+            > * {
+              @apply py-5 border-b border-gray-200;
+            }
+            .empty-cart {
+              h3 {
+                @apply font-bold text-center py-5 text-2xl text-gray-300;
+              }
+            }
+            .class-box {
+              @apply flex gap-x-2.5 items-start;
+              .class-img {
+                @apply flex-none w-16 h-16 object-cover;
+              }
+              .info {
+                h4 {
+                  @apply font-bold text-sm mb-0.5 -mt-1;
+                }
+                p {
+                  @apply text-gray-400 text-sm;
+                }
+                strong {
+                  @apply text-accent-2 text-sm;
+                }
+              }
+              .btn-remove {
+                @apply ml-auto transition hover:opacity-70;
+              }
+            }
+          }
+          footer {
+            @apply mt-auto pt-5;
+            .row {
+              @apply flex items-center justify-between lg:text-sm mb-7;
+              .total-amount {
+                @apply text-accent-2;
+              }
+            }
+            .checkout-link {
+              @apply inline-block w-full text-center py-1.5;
+              &.disabled {
+                @apply bg-opacity-60 pointer-events-none;
+              }
+            }
+          }
+        }
+      }
+
+      .auth-info {
+        @apply md:mt-auto;
+        .user-info {
+          @apply relative;
+          .toggler {
+            @apply inline-flex items-center gap-x-1.5 transition duration-200
+            text-xl font-bold;
+            .icon {
+              @apply w-5 h-5 transition duration-200 relative top-px hidden lg:inline-block;
+            }
+            &.toggled {
+              @apply text-accent-2;
+              .icon {
+                @apply rotate-180;
+              }
+            }
+          }
+          .account-dropdown {
+            @apply lg:absolute lg:bg-white top-full right-0 lg:w-52 mt-4 lg:mt-2.5 lg:shadow lg:border
+            border-gray-200 rounded-lg overflow-hidden text-base;
+            ul {
+              li {
+                .list-link {
+                  @apply inline-block py-2 lg:py-3 lg:px-3.5 transition duration-200 font-bold lg:font-normal hover:font-bold 
+                  hover:opacity-70 lg:hover:opacity-100 lg:hover:text-accent-1 w-full text-lg lg:text-base mb-2 lg:mb-0;
+                  &.router-link-active {
+                    @apply relative pb-4;
+                    &::after {
+                      @apply content-[attr(data-link)] overflow-hidden absolute bottom-1 left-0 w-max h-[3px] bg-accent-2
+                      transition duration-200 lg:hidden;
+                    }
+                  }
+                }
+              }
+            }
+            .log-out {
+              @apply pt-2.5 pb-3.5 lg:px-4;
+              button {
+                @apply w-full font-bold text-base lg:text-sm text-gray-400 py-1.5 rounded
+                border border-gray-400 transition duration-200
+                hover:bg-gray-400 hover:text-white;
+              }
+            }
+          }
+        }
+        .sign-link {
+          @apply inline-block lg:text-sm px-6 py-1.5 w-full lg:w-auto text-center text-base;
+        }
+      }
+    }
+  }
+}

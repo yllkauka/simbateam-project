@@ -1,0 +1,16 @@
+body.princeton {
+  @apply font-[Montserrat];
+  .btn-accent-1,
+  .btn-accent-2 {
+    @apply  text-white border font-bold transition duration-200 uppercase;
+    &:disabled {
+      @apply pointer-events-none opacity-60;
+    }
+  }
+  .btn-accent-1 {
+    @apply text-accent-1 border-accent-1 hover:text-accent-2 hover:border-accent-2;
+  }
+  .btn-accent-2 {
+    @apply text-accent-2 border-accent-2 hover:text-accent-1 hover:border-accent-1;
+  }
+}

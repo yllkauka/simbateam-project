@@ -1,0 +1,162 @@
+.create-new-account {
+  .btn-submit {
+    @apply block w-full sm:w-60 mx-auto py-2 sticky top-full;
+  }
+
+  .account-info,
+  .attendee-profiles,
+  .payment-methods {
+    @apply pt-[30px] xl:pt-10 pb-10 relative
+    min-h-[calc(100vh-254px)] sm:min-h-[calc(100vh-198px)] md:min-h-[calc(100vh-208px)]
+    xl:min-h-[calc(100vh-219px)];
+  }
+
+  .account-form {
+    .form-row {
+      @apply sm:flex items-center gap-x-5;
+      .input-component,
+      .countries-drop {
+        @apply flex-1;
+      }
+      .countries-drop {
+        @apply mb-5 xl:-mb-1;
+      }
+    }
+    > .row {
+      @apply xl:grid grid-cols-2 gap-x-10 mb-4 md:mb-7 xl:mb-10;
+      .column {
+        &:first-of-type {
+          @apply relative;
+          &::after {
+            @apply content-[''] absolute top-0 -right-5 h-full w-px bg-gray-200
+                hidden xl:block;
+          }
+          .form-row:last-of-type {
+            .input-component {
+              @apply xl:mb-0;
+            }
+          }
+        }
+
+        .checkbox-component {
+          @apply inline-flex items-center gap-x-1.5 mb-4 md:mb-5;
+        }
+      }
+    }
+
+    .terms-policy-note {
+      @apply sm:text-center text-sm mb-4 md:mb-5;
+      .link {
+        @apply text-accent-1 transition hover:text-accent-2;
+      }
+    }
+  }
+
+  .account-info {
+    .page-info {
+      @apply mb-4;
+    }
+  }
+
+  .attendee-profiles,
+  .payment-methods {
+    .page-info {
+      @apply mb-6 xl:mb-[30px];
+    }
+
+    .current-attendees,
+    .saved-payments {
+      @apply grid md:grid-cols-2 xl:grid-cols-3 gap-y-4 md:gap-5 xl:gap-[30px];
+      .attendee-card,
+      .add-new-attendee,
+      .payment-method,
+      .add-new-payment {
+        @apply border border-gray-200 rounded-lg min-h-[10rem];
+      }
+      .attendee-card,
+      .payment-method {
+        @apply py-4 xl:py-5 px-3;
+        header {
+          @apply flex items-center justify-between mb-2.5;
+          h3 {
+            @apply font-bold text-xl;
+          }
+          .actions {
+            button {
+              @apply font-bold inline-flex items-center gap-x-1
+              transition duration-300;
+              .icon {
+                @apply w-[18px] h-[18px];
+              }
+            }
+            .edit-card {
+              @apply text-accent-1 hover:text-accent-2;
+            }
+            .delete-card {
+              @apply text-gray-400 ml-3 hover:opacity-70;
+            }
+          }
+        }
+        ul {
+          li {
+            &:not(:last-of-type) {
+              @apply mb-2.5;
+            }
+          }
+        }
+      }
+
+      .add-new-attendee,
+      .add-new-payment {
+        @apply text-accent-1 inline-flex items-center justify-center font-bold
+        gap-x-1 mb-6 md:mb-0 transition duration-200
+        hover:border-accent-1 hover:bg-accent-1 hover:text-white;
+        .icon {
+          @apply w-5 h-5;
+        }
+      }
+    }
+
+    .add-attendee-modal,
+    .add-payment-modal {
+      @apply relative;
+      .close-modal {
+        @apply absolute top-0.5 md:top-5 right-0 md:right-5 z-20
+        text-accent-1 transition hover:text-accent-2;
+        .icon {
+          @apply w-6 h-6;
+        }
+      }
+    }
+    .add-attendee-modal {
+      @apply md:w-[708px] lg:w-[992px] md:max-w-[1160px];
+      .modal-info {
+        @apply md:absolute top-0 left-0 md:p-10 md:pb-4
+        bg-white w-[calc(100%-1rem)] z-10;
+      }
+      .account-form {
+        @apply md:p-10 md:pt-36 overflow-y-auto md:max-h-[80vh] xl:max-h-[90vh];
+      }
+    }
+    .add-payment-modal {
+      @apply md:w-[35rem] md:p-10 md:pt-14;
+      .modal-info {
+        @apply mb-5;
+        .page-heading {
+          @apply flex items-center justify-between;
+          .payments-icons {
+            @apply hidden md:flex items-center gap-x-1.5;
+          }
+        }
+      }
+      .account-form {
+        .form-row {
+          @apply mb-5;
+        }
+        .btn-submit {
+          @apply w-full;
+        }
+      }
+    }
+  }
+}
