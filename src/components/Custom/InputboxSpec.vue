@@ -10,7 +10,7 @@
     <strong>{{ label }}</strong>
     <div class="inp-box">
       <input
-          type="number"
+          type="text"
           :placeholder="placeholder"
           class="form-control"
           required

@@ -21,7 +21,6 @@
                         @apply flex-1;
                     }
                 }
-
             }
             &.second {
                 .half-input {
@@ -49,36 +48,9 @@
                             }
                         }
                     }
-                }
-                .input-component {
-                    @apply flex-1 w-full;
-                    .inp-box {
-                        @apply relative;
-                        .form-control {
-                            @apply w-full pl-16;
-                            &:focus + .special-icon {
-                                @apply border-accent-1 text-accent-1;
-                            }
-                            &:disabled {
-                                @apply opacity-60;
-                                & + .special-icon {
-                                    @apply opacity-60;
-                                }
-                            }
-                        }
-                        .special-icon {
-                            @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
-                            w-14 border border-gray-300 flex items-center justify-center rounded-l-lg transition
-                            pointer-events-none;
-                        }
-                    }
-                    .date-picker {
-                    }
-                }
-                .textarea-input {
-                    .form-control {
-                        @apply h-36 py-3 my-3;
-                    }
+                },
+                .row {
+                    @apply flex gap-x-1.5
                 }
             }
         }
@@ -153,6 +125,34 @@
                     }
                 }
             }
+        }
+    }
+    .input-component {
+        @apply flex-1 w-full;
+        .inp-box {
+            @apply relative;
+            .form-control {
+                @apply w-full pl-16;
+                &:focus + .special-icon {
+                    @apply border-accent-1 text-accent-1;
+                }
+                &:disabled {
+                    @apply opacity-60;
+                    & + .special-icon {
+                        @apply opacity-60;
+                    }
+                }
+            }
+            .special-icon {
+                @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+                w-14 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+                pointer-events-none;
+            }
+        }
+    }
+    .textarea-input {
+        .form-control {
+            @apply h-36 py-3;
         }
     }
 }

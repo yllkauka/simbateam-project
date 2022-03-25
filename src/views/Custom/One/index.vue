@@ -34,7 +34,7 @@ const formData = {
     radioChoices: ['Option1', 'Option2', 'Option3', 'Option4', 'Option5'],
     radioChosen: {
       model: null,
-      value: 'Custom Input'
+      value: ''
     }
   },
   checkboxpicker: {
@@ -44,7 +44,7 @@ const formData = {
     checkboxChoices: ['Option1', 'Option2', 'Option3', 'Option4', 'Option5'],
     checkboxChosen: {
       model: [false, false, false, false, false, false],
-      value: 'Custom Input'
+      value: ''
     }
   },
   halfDroplist: {

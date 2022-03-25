@@ -3,321 +3,151 @@ import { ref, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { countryList } from '@/helpers/countries.js'
+import Banner from '../../../components/Custom/Banner.vue'
+import Subtitle from '../../../components/Custom/Subtitle.vue'
+import Inputbox from '../../../components/Custom/Inputbox.vue'
+import InputboxSpec from '../../../components/Custom/InputboxSpec.vue'
+import Phone from '../../../components/Custom/Phone.vue'
+import Dropdown from '../../../components/Custom/Dropdown.vue'
+import Textarea from '../../../components/Custom/Textarea.vue'
+import CheckboxPicker from '../../../components/Custom/CheckboxPicker.vue'
+import FileUpload from '../../../components/Custom/FileUpload.vue'
 
 const router = useRouter()
 
-const donation = ref({
-  model: '',
-  other: null,
-  value: 0,
-})
-const donationAmount = ref(null)
-const customAmounts = ref([
-  'Painting',
-  'Photography',
-  'Textiles',
-  'Ceramics',
-  'Glass',
-  'Wood',
-  'Felt',
-  'Furniture',
-  'Cards/Paer',
-  'Jewelry',
-])
 
-watchEffect(() => {
-  if (donation.value.model !== 'Other') {
-    donation.value.value = +donation.value.model
-  } else {
-    donation.value.value = +donationAmount.value
+const formData = {
+  subtitle: {
+    title: 'Sauce for the Goose Artist Application',
+    description: 'Thank you for your interest in participating in Sauce for the Goose ' +
+        'Art Market! The event will take place on Saturday, November 13 from ' +
+        '10am-4pm at Princeton Shopping Center. The rain date is Novemvber 14'
+  },
+  droplist: {
+    label: 'Country',
+    selectedItem: 'Please select',
+    direction: '',
+    options: [...countryList]
+  },
+  checkboxpicker: {
+    text: 'Artwork category (check all that apply)',
+    description: '',
+    checkboxChoices: ['Painting', 'Photography', 'Textiles', 'Ceramics', 'Glass', 'Wood', 'Felt', 'Furniture', 'Cards/Paer', 'Jewelry'],
+    checkboxChosen: {
+      model: [false, false, false, false, false, false, false, false, false, false, false],
+      value: ''
+    }
   }
-})
-
-const isRecurrentDonation = ref(false)
-const chargeDayDroplist = ref({
-  label: 'Monthly Charge Day',
-  options: [],
-})
-
-for (let i = 1; i <= 31; i++) {
-  let s = ['th', 'st', 'nd', 'rd']
-  let v = i % 100
-  let option = `${i}<sup>${s[(v - 20) % 10] || s[v] || s[0]}</sup>`
-  chargeDayDroplist.value.options.push(option)
 }
-
-const countriesDroplist = ref({
-  label: 'Country',
-  selectedItem: 'Please select',
-  direction: '',
-  options: [...countryList],
-})
 </script>
 
 <template>
-  <section class="store-donate">
-    <div class="hero-banner">
-      <div class="container">
-        <h1>Sauce for the Goose Artist Application</h1>
-      </div>
-    </div>
-
+  <section>
+    <Banner
+        form-name="Sauce for the Goose Artist Application"
+        bg-url="demo2-banner.png"
+    />
     <div class="container">
-      <form class="donate-form">
-        <div class="form-info">
-          <h1 class="page-heading text-blue-500">
-            Sauce for the Goose Artist Application
-          </h1>
-          <p class="page-description">
-            Thank you for your interest in participating in Sauce for the Goose
-            Art Market! The event will take place on Saturday, November 13 from
-            10am-4pm at Princeton Shopping Center. The rain date is Novemvber
-            14.
-          </p>
-        </div>
-
+      <form class="form-container">
+        <Subtitle
+            :subtitle="formData.subtitle"
+        />
         <div class="row">
           <div class="first column">
-            <div class="form-row">
-              <label class="input-component">
-                <strong>Email</strong>
-                <input
-                  type="email"
+            <div class="half-input">
+              <Inputbox
+                  label="Email"
                   placeholder="Email"
-                  class="form-control"
-                  required
-                />
-              </label>
-              <label class="input-component">
-                <strong>Artist/vender name</strong>
-                <input
-                  type="text"
-                  placeholder="Your answer"
-                  class="form-control"
-                  required
-                />
-              </label>
+              />
+              <Inputbox
+                  label="Artist/vender name"
+                  placeholder=""
+              />
             </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>Artist Phone</strong>
-                <input
-                  type="tel"
+            <div class="half-input">
+              <Phone
+                  label="Artist Phone"
                   placeholder="123-456-7890"
-                  class="form-control"
-                  pattern="[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]"
-                  required
-                />
-              </label>
-              <label class="input-component">
-                <strong>Artist website</strong>
-                <div class="inp-box">
-                  <input
-                    type="text"
-                    placeholder="       www.example.com"
-                    class="form-control"
-                  />
-                  <span class="special-icon">http://</span>
-                </div>
-              </label>
+              />
+              <InputboxSpec
+                  label="Artist website"
+                  placeholder="www.example.com"
+                  icon="http://"
+              />
             </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>Artist instagram</strong>
-                <div class="inp-box">
-                  <input
-                    type="text"
-                    placeholder="       www.example.com"
-                    class="form-control"
-                  />
-                  <span class="special-icon">http://</span>
-                </div>
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>Address line one</strong>
-                <input
-                  type="text"
-                  placeholder="Address line one"
-                  class="form-control"
-                  required
-                />
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>Address line two</strong>
-                <input
-                  type="text"
-                  placeholder="Address line two"
-                  class="form-control"
-                  required
-                />
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>City</strong>
-                <input
-                  type="text"
+            <InputboxSpec
+                label="Artist instagram"
+                placeholder="www.example.com"
+                icon="http://"
+            />
+            <Inputbox
+                label="Address line one"
+                placeholder="Address line one"
+            />
+            <Inputbox
+                label="Address line two"
+                placeholder="Address line two"
+            />
+            <div class="half-input">
+              <Inputbox
+                  label="City"
                   placeholder="City"
-                  class="form-control"
-                  required
-                />
-              </label>
-              <label class="input-component">
-                <strong>State/Prov</strong>
-                <input
-                  type="text"
+              />
+              <Inputbox
+                  label="State/Prov"
                   placeholder="State"
-                  class="form-control"
-                  required
-                />
-              </label>
+              />
             </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>Zip Code</strong>
-                <input
-                  type="number"
+            <div class="half-input">
+              <Inputbox
+                  label="Zip Code"
                   placeholder="Zip Code"
-                  class="form-control"
-                  required
-                />
-              </label>
-              <BaseDropdown
-                :dropdown="countriesDroplist"
-                class="countries-drop gray-bg"
+              />
+              <Dropdown
+                  :droplist="formData.droplist"
               />
             </div>
           </div>
           <div class="second column">
-            <div class="form-row">
-              <label class="input-component">
-                <strong>
-                  Brief description of your work to be offered for sale
-                </strong>
-                <textarea
-                  type="textfield"
-                  placeholder="Your answer"
-                  class="form-control h-24 py-2.5"
-                  required
-                ></textarea>
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>
-                  Artwork category (check all that apply)
-                </strong>
-                <div class="donation-amount">
-                  <label
-                    class="radio-input"
-                    v-for="amount in customAmounts"
-                    :key="amount"
-                  >
-                    <input
-                      name="checkbox"
-                      type="checkbox"
-                      :v-model="donation.model"
-                      :key="amount"
-                      :value="amount"
-                    />
-                    {{ amount }}
-                  </label>
-
-                  <div class="other-amount">
-                    <label class="check-input">
-                      <input
-                        type="checkbox"
-                        :v-model="donation.other"
-                        value="Other"
-                      />
-                      Other
-                    </label>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Your answer"
-                        class="form-control"
-                        v-model="donationAmount"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>
-                  Brief description of your work to be offered for sale
-                </strong>
-                <p>Include 5-10 photos that represent your work</p>
-                <p>PLEASE INCLUDE YOUR LAST NAME IN TITLES OF IMAGES</p>
-                <button class="btn-add" @click.prevent>
-                  + Add file
-                </button>
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>
-                  Card Number
-                </strong>
-                <input
-                  type="text"
-                  placeholder="Card Number"
-                  class="form-control"
-                  required
-                />
-              </label>
-            </div>
-            <div class="form-row">
-              <label class="input-component">
-                <strong>
-                  Name on card
-                </strong>
-                <input
-                  type="text"
+            <Textarea
+                text="Brief description of your work to be offered for sale"
+                description=""
+                placeholder="Your answer"
+            />
+            <CheckboxPicker
+                :checkboxpicker="formData.checkboxpicker"
+            />
+            <FileUpload
+                text="Brief description of your work to be offered for sale"
+                description-one="Include 5-10 photos that represent your work"
+                description-two="PLEASE INCLUDE YOUR LAST NAME IN TITLES OF IMAGES"
+            />
+            <Inputbox
+                text="Card Number"
+                placeholder="Card Number"
+            />
+            <div class="row">
+              <Inputbox
+                  label="Name on card"
                   placeholder="First Last"
-                  class="form-control"
-                  required
-                />
-              </label>
-              <label class="input-component">
-                <strong>
-                  Expire Date
-                </strong>
-                <input
-                  type="text"
+              />
+              <Inputbox
+                  label="Expire Date"
                   placeholder="mm/dd"
-                  class="form-control"
-                  required
-                />
-              </label>
-              <label class="input-component">
-                <strong>
-                  CVC
-                </strong>
-                <input
-                  type="text"
-                  placeholder="&bull;&bull;&bull;"
-                  class="form-control"
-                  required
-                />
-              </label>
+              />
+              <Inputbox
+                  label="CVC"
+                  placeholder="123"
+              />
             </div>
           </div>
         </div>
-
         <footer class="footer-box">
           <label class="check-footer">
             <input
-              type="checkbox"
-              class="mt-1"
-              value="1"
-              :v-model="donation.value"
+                type="checkbox"
+                class="mt-1"
+                value="1"
             />
             By selecting this box, I am confirming that I am available on both
             Saturday, Nov.13 and Saturday. In the event of inclement weather on
