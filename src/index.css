@@ -6,6 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 100%;
+}
+
 body {
   @apply min-h-screen text-gray-800;
 }
@@ -93,14 +97,22 @@ textarea.form-control {
   }
   .inp-box {
     @apply relative;
-    .icon {
-      @apply absolute top-1/2 left-3 -translate-y-1/2 w-5 text-xl text-gray-400 transition duration-200;
-    }
-    input {
-      @apply pl-10;
-      &:focus + .icon {
-        @apply text-accent-1;
+    .form-control {
+      @apply pl-12 w-40 md:w-44 xl:w-48;
+      &:focus + .special-icon {
+         @apply border-accent-1 text-accent-1;
       }
+      &:disabled {
+         @apply opacity-60;
+      & + .special-icon {
+          @apply opacity-60;
+        }
+      }
+    }
+    .special-icon {
+      @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+      w-11 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+      pointer-events-none;
     }
   }
 }

@@ -11,8 +11,6 @@ import StoreFooter from './components/StoreFooter.vue';
 
 import AltFooter from './components/AltFooter.vue';
 
-import LandingDemo from './components/LandingDemo/index.vue'
-
 const removeDefaultHeader = computed(() => {
   if (route.matched && route.matched.length) {
     if (
@@ -39,7 +37,6 @@ onMounted(() => {
 <template>
   <StoreHeader v-if="!removeDefaultHeader" />
 
-  <!-- <LandingDemo /> -->
   <RouterView />
 
   <StoreFooter v-if="!removeDefaultHeader" />

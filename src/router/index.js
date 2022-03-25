@@ -5,13 +5,13 @@ const routes = [
   {
     path: '/demo1',
     name: 'Demo1',
-    component: () => import('../views/Demo/demo1.vue'),
+    component: () => import('../views/Custom/One/index.vue'),
   },
-  // Demo1
+  // Demo2
   {
     path: '/demo2',
     name: 'Demo2',
-    component: () => import('../views/Demo/demo2.vue'),
+    component: () => import('../views/Custom/Two/index.vue'),
   },
 
   // Storefront Flow

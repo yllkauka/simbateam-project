@@ -333,5 +333,5 @@ const countriesDroplist = ref({
 </template>
 
 <style>
-@import url('./demo2.pcss');
+@import url('../index.pcss');
 </style>

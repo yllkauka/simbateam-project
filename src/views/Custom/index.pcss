@@ -1,0 +1,158 @@
+.form-container {
+    @apply py-4 md:py-6 lg:py-8;
+    .form-info {
+        @apply mb-5;
+        .page-heading {
+            @apply text-blue-800
+        }
+    }
+    .row {
+        @apply xl:grid grid-cols-2 gap-x-10 mb-4 md:mb-7 xl:mb-10;
+        .column {
+            &.first {
+                @apply relative mb-2.5 xl:mb-0;
+                &::after {
+                    @apply content-[''] absolute top-0 -right-5 h-full w-px bg-gray-200
+                    hidden xl:block;
+                }
+                .half-input {
+                    @apply sm:flex items-center gap-x-5;
+                    .input-component {
+                        @apply flex-1;
+                    }
+                }
+
+            }
+            &.second {
+                .half-input {
+                    @apply sm:flex items-center gap-x-5;
+                    .input-component {
+                        @apply flex-1;
+                        .inp-box {
+                            @apply relative;
+                            .form-control {
+                                @apply pl-12 w-full;
+                                &:focus + .special-icon {
+                                    @apply border-accent-1 text-accent-1;
+                                }
+                                &:disabled {
+                                    @apply opacity-60;
+                                    & + .special-icon {
+                                        @apply opacity-60;
+                                    }
+                                }
+                            }
+                            .special-icon {
+                                @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+                                w-11 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+                                pointer-events-none;
+                            }
+                        }
+                    }
+                }
+                .input-component {
+                    @apply flex-1 w-full;
+                    .inp-box {
+                        @apply relative;
+                        .form-control {
+                            @apply w-full pl-16;
+                            &:focus + .special-icon {
+                                @apply border-accent-1 text-accent-1;
+                            }
+                            &:disabled {
+                                @apply opacity-60;
+                                & + .special-icon {
+                                    @apply opacity-60;
+                                }
+                            }
+                        }
+                        .special-icon {
+                            @apply absolute left-0 top-1/2 -translate-y-1/2 bg-gray-50 h-full
+                            w-14 border border-gray-300 flex items-center justify-center rounded-l-lg transition
+                            pointer-events-none;
+                        }
+                    }
+                    .date-picker {
+                    }
+                }
+                .textarea-input {
+                    .form-control {
+                        @apply h-36 py-3 my-3;
+                    }
+                }
+            }
+        }
+    }
+    .footer-box {
+        @apply sm:text-center;
+        .btn-submit {
+            @apply mt-3 md:mt-5;
+        }
+    }
+    .btn-submit {
+        @apply block w-full sm:w-60 mx-auto py-2;
+    }
+    .btn-upload {
+        @apply mt-3 md:mt-5 px-4 py-1 font-bold;
+    }
+    .radio-picker {
+        .radio-picker-info {
+            @apply mb-3 lg:mb-5;
+        }
+        .radio-choices {
+            @apply flex items-center flex-wrap justify-between gap-x-10
+            md:gap-x-6 xl:gap-x-10 gap-y-3 mb-5 md:w-[36rem] lg:w-auto;
+            .radio-input {
+                @apply w-auto;
+            }
+            .other-choice {
+                @apply flex items-center gap-x-3;
+                .radio-input {
+                    @apply inline-flex items-center gap-x-1.5;
+                }
+                .inp-box {
+                    @apply relative;
+                    .form-control {
+                        @apply pl-5 w-40 h-8 md:w-44 xl:w-48;
+                        &:focus {
+                            @apply border-accent-1 text-accent-1;
+                        }
+                        &:disabled {
+                            @apply opacity-60;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .checkbox-picker {
+        .checkbox-picker-info {
+            @apply mb-3 lg:mb-5;
+        }
+        .checkbox-choices {
+            @apply flex items-center flex-wrap justify-between gap-x-10
+            md:gap-x-6 xl:gap-x-10 gap-y-3 mb-5 md:w-[36rem] lg:w-auto;
+            .checkbox-input {
+                @apply w-auto;
+            }
+            .other-choice {
+                @apply flex items-center gap-x-3;
+                .checkbox-input {
+                    @apply inline-flex items-center gap-x-1.5;
+                }
+                .inp-box {
+                    @apply relative;
+                    .form-control {
+                        @apply pl-5 w-40 h-8 md:w-44 xl:w-48;
+                        &:focus {
+                            @apply border-accent-1 text-accent-1;
+                        }
+                        &:disabled {
+                            @apply opacity-60;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
